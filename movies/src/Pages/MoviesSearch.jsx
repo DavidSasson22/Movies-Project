@@ -1,6 +1,8 @@
 import React from 'react'
-import axios from '../axios';
+import axios from 'axios';
 import DisplayMovies from '../components/Display Movies/DisplayMovies';
+import SearchBar from '../components/SearchBar/SearchBar';
+import './style.css'
 
 
 const imdbApi = {
@@ -24,7 +26,8 @@ export default function MoviesSearchPage() {
     console.log(specific);
   }
   return (
-    <div>
+    <div className="MoviesSearchPage">
+      <SearchBar/>
       <DisplayMovies/>
     </div>
   )

@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.MoviesSearchPage{
+  display: flex;
+}
+
+.SearchBar {
+  width: 20vw;
+  height: 100vh;
+  background-color: #d8e2dc;
+  display: inline-block;
+  padding: 16px;
+}
+
+.DisplayMovies{
+  width: 80vw;
+  background-color: #e8e8e4;
+  display: inline-block;
+  padding: 16px;
+}
+
+.SearchBarContainer {
+  background-color: #f8edeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
