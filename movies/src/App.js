@@ -1,9 +1,10 @@
 import React from 'react'
+import Movies from './components/Movies'
 
 export default function App() {
   return (
     <div>
-      <h1>abc</h1>
+      <Movies/>
     </div>
   )
 }
