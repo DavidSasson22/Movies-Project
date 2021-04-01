@@ -1,10 +1,10 @@
 import React from 'react'
-import Movies from './components/Movies'
+import MoviesSearchPage from './Pages/MoviesSearch'
 
 export default function App() {
   return (
     <div>
-      <Movies/>
+      <MoviesSearchPage/>
     </div>
   )
 }
