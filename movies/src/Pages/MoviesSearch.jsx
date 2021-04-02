@@ -41,17 +41,8 @@ export default function MoviesSearchPage() {
       setMovies(data);
     }
     getData()
-  }, [searchTerm])
+  }, [searchTerm, category])
 
-
-  useEffect(() => {
-    console.log(`father activated, category = ${category}`);
-    const getData = async () => {
-      const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
-      setMovies(data);
-    }
-    getData()
-  }, [category])
 
   return (
     <div className="MoviesSearchPage">

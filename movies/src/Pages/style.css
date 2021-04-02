@@ -157,7 +157,6 @@ p {
 
 
 .categories {
-  width: 20%;
   border: transparent;
   max-width: 600px;
   background: var(--clr-white);
