@@ -29,12 +29,14 @@ export default function MoviesSearchPage() {
   const [category, setCategory] = useState(`SearchMovie`);
   const [searchTerm, setSearchTerm] = useState(`batman`);
 
-  // const getData = async () => {
-  //   const data = await axios.get(`${imdbApi.baseUrl}/${imdbApi.generalSearch}/${imdbApi.key}/lion`);
-  //   console.log(data);
-  //   const specific = await axios.get(`${imdbApi.baseUrl}/${imdbApi.titeleinfo}/${imdbApi.key}/${data.data.results[0].id}`);
-  //   console.log(specific);
-  // }
+  useEffect(()=>{
+    console.log(`father activated, term = ${searchTerm}`);
+  }, [searchTerm])
+
+
+  useEffect(()=>{
+    console.log(`father activated, category = ${category}`);
+  }, [category])
 
   return (
     <div className="MoviesSearchPage">
@@ -47,3 +49,11 @@ export default function MoviesSearchPage() {
     </div>
   )
 }
+
+
+ // const getData = async () => {
+  //   const data = await axios.get(`${imdbApi.baseUrl}/${imdbApi.generalSearch}/${imdbApi.key}/lion`);
+  //   console.log(data);
+  //   const specific = await axios.get(`${imdbApi.baseUrl}/${imdbApi.titeleinfo}/${imdbApi.key}/${data.data.results[0].id}`);
+  //   console.log(specific);
+  // }
