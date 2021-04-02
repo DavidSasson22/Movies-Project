@@ -21,7 +21,7 @@ const searchCategories = {
 }
 
 //Set search category for specific movie
-const searchMovieInfo = `Title`;
+// const searchMovieInfo = `Title`;
 
 
 export default function MoviesSearchPage() {
