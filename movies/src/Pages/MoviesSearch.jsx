@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Movies from '../components/Display Movies/DisplayMovies';
 import SearchBar from '../components/SearchBar/SearchBar';
@@ -28,32 +28,43 @@ export default function MoviesSearchPage() {
 
   const [category, setCategory] = useState(`SearchMovie`);
   const [searchTerm, setSearchTerm] = useState(`batman`);
+  const [movies, setMovies] = useState([]);
 
-  useEffect(()=>{
+  // const getData = async () => {
+  //   const data = await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`);
+  // }
+
+  useEffect(() => {
     console.log(`father activated, term = ${searchTerm}`);
+    const getData = async () => {
+      const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
+      setMovies(data);
+    }
+    getData()
   }, [searchTerm])
 
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(`father activated, category = ${category}`);
+    const getData = async () => {
+      const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
+      setMovies(data);
+    }
+    getData()
   }, [category])
 
   return (
     <div className="MoviesSearchPage">
       <SearchBar
-      searchCategories = {searchCategories}
-      changeCategory = {setCategory}
-      changeSearchTerm = {setSearchTerm}
+        searchCategories={searchCategories}
+        changeCategory={setCategory}
+        changeSearchTerm={setSearchTerm}
       />
-      <Movies/>
+      <Movies
+      movies = {movies}
+      />
     </div>
   )
 }
 
 
- // const getData = async () => {
-  //   const data = await axios.get(`${imdbApi.baseUrl}/${imdbApi.generalSearch}/${imdbApi.key}/lion`);
-  //   console.log(data);
-  //   const specific = await axios.get(`${imdbApi.baseUrl}/${imdbApi.titeleinfo}/${imdbApi.key}/${data.data.results[0].id}`);
-  //   console.log(specific);
-  // }

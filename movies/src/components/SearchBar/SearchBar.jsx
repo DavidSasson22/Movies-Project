@@ -8,7 +8,7 @@ export default function SearchBar({ searchCategories, changeCategory, changeSear
   let options = []
 
   for (let key in searchCategories) {
-    options.push(searchCategories[key][1]);
+    options.push([searchCategories[key][0],searchCategories[key][1]]);
   }
 
 
@@ -32,7 +32,7 @@ export default function SearchBar({ searchCategories, changeCategory, changeSear
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [category])
+  }, )
 
 
   useEffect(() => {
@@ -40,12 +40,12 @@ export default function SearchBar({ searchCategories, changeCategory, changeSear
       if (searchTerm) {
         changeSearchTerm(searchTerm);
       }
-    }, 500);
+    }, 1000);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [searchTerm])
+  }, )
 
 
   return (
@@ -55,7 +55,7 @@ export default function SearchBar({ searchCategories, changeCategory, changeSear
         onChange={(e) => inputChangeHandler(e.target.value)} />
       <select name="categories" id="categories" className="categories"
         onChange={(e) => categoryChangedHandler(e.target.value)}>
-        {options.map((op, i) => <option key={i} value={op}>{op}</option>)}
+        {options.map((op, i) => <option key={i} value={op[0]}>{op[1]}</option>)}
       </select>
     </form>
   )

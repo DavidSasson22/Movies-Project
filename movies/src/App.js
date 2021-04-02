@@ -1,10 +1,14 @@
-import React from 'react'
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import MoviesSearchPage from './Pages/MoviesSearch'
 
 export default function App() {
   return (
     <div>
-      <MoviesSearchPage/>
+      <BrowserRouter>
+        <div>
+        <Route path="/" exact component={MoviesSearchPage} />
+        </div>
+      </BrowserRouter>
     </div>
   )
 }
