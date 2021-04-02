@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function DisplayMovies() {
+export default function Movies() {
   return (
     <div className="DisplayMovies">
-      <h1>Content</h1>
+      <h1>Gallery Comes Here</h1>
     </div>
   )
 }

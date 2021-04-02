@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import DisplayMovies from '../components/Display Movies/DisplayMovies';
+import Movies from '../components/Display Movies/DisplayMovies';
 import SearchBar from '../components/SearchBar/SearchBar';
 import './style.css'
 
@@ -28,7 +28,7 @@ export default function MoviesSearchPage() {
   return (
     <div className="MoviesSearchPage">
       <SearchBar/>
-      <DisplayMovies/>
+      <Movies/>
     </div>
   )
 }
