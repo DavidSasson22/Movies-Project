@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url(./fonts/FontsFree-Net-SFProText-Regular.ttf);
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  background: #333333;
+  backdrop-filter: saturate(180%) blur(20px);
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar{
+  display: flex;
+  box-sizing: content-box;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  width: 90%;
+  margin: 0 10px;
+}
+
+.menu{
+  list-style: none;
+  padding: 0 10px;
+  filter: invert(20%);
+  color: #FFFFFF;
+  font-size: medium;
+}
+
+
+.menu:hover {
+  filter: invert(0%);
+  cursor: pointer;
+}

@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route,  } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
 import MoviesSearchPage from './Pages/MoviesSearch'
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <div>
       <BrowserRouter>
         <div>
+        <NavBar/>
         <Route path="/" exact component={MoviesSearchPage} />
         </div>
       </BrowserRouter>

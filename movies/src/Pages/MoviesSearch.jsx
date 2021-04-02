@@ -37,8 +37,14 @@ export default function MoviesSearchPage() {
   useEffect(() => {
     console.log(`father activated, term = ${searchTerm}`);
     const getData = async () => {
-      const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
-      setMovies(data);
+      try {
+        const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
+        setMovies(data);
+      }
+      catch (e) {
+        alert(e.essage);
+      }
+
     }
     getData()
   }, [searchTerm, category])
@@ -52,7 +58,7 @@ export default function MoviesSearchPage() {
         changeSearchTerm={setSearchTerm}
       />
       <Movies
-      movies = {movies}
+        movies={movies}
       />
     </div>
   )
