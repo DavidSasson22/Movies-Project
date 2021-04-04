@@ -24,27 +24,69 @@ const searchCategories = {
 // const searchMovieInfo = `Title`;
 
 
+//Set local storage
+let searchResults = localStorage.getItem("searchResults");
+searchResults = JSON.parse(searchResults);
+
+let myFAvorites = localStorage.getItem("myFAvorites");
+myFAvorites = JSON.parse(myFAvorites);
+
+let movieItems = localStorage.getItem("movieItems");
+movieItems = JSON.parse(movieItems);
+
+//Main function
 export default function MoviesSearchPage() {
 
   const [category, setCategory] = useState(`SearchMovie`);
   const [searchTerm, setSearchTerm] = useState(`batman`);
   const [movies, setMovies] = useState([]);
 
-  // const getData = async () => {
-  //   const data = await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`);
-  // }
+  const searchSearchTermInlocal = () => {
+    if (searchResults !== null) {
+      for (let item of searchResults) {
+        if (item.searchTerm === searchTerm && item.category === category) {
+          return item.value
+        }
+      }
+      return false
+    }
+    return false
+  }
 
   useEffect(() => {
-    console.log(`father activated, term = ${searchTerm}`);
     const getData = async () => {
-      try {
-        const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
-        setMovies(data);
+      if (!searchSearchTermInlocal()) {
+        console.log(`could not find ${searchTerm} in ${category} in local localStorage`);
+        try {
+          const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
+          setMovies(data);
+          if (searchResults === null) {
+            console.log("initializing local localStorage for the first time");
+            searchResults = [{
+              searchTerm: searchTerm,
+              category: category,
+              value: data,
+            }]
+            localStorage.setItem("searchResults", JSON.stringify(searchResults));
+          }
+          else {
+            console.log(`updating local storage`);
+            searchResults.push({
+              searchTerm: searchTerm,
+              category: category,
+              value: data,
+            });
+            localStorage.setItem("searchResults", JSON.stringify(searchResults));
+          }
+        }
+        catch (e) {
+          alert(`Error:${e.message} \n you may reached your 100 dayli calls to the server. If so, try agin in 24h`);
+        }
       }
-      catch (e) {
-        alert(e.essage);
+      else {
+        console.log(`Search term has found in local storage`);
+        setMovies(searchSearchTermInlocal());
       }
-
     }
     getData()
   }, [searchTerm, category])

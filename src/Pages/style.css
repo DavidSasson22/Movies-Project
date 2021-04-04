@@ -220,3 +220,8 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 }
+
+.errorMessage{
+  margin-top: 25vh;
+  text-align: center;
+}
