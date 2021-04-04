@@ -79,17 +79,21 @@
 
 .footer .mayLike ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: baseline;
   flex-wrap: wrap;
 }
 
 .footer .mayLike ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 4px;
-  padding: 4px;
+  padding: 2px 8px;
   height: 60px;
   text-align: center;
-  border-right: 1px var(--clr-grey-1) solid;
+  border: 1px grey solid;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 400px) {
