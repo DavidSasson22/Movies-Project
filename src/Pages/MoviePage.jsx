@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import SingleMoviePage from '../components/SingleMoviePage/SingleMoviePage';
 
@@ -6,16 +6,19 @@ import SingleMoviePage from '../components/SingleMoviePage/SingleMoviePage';
 const imdbBasic = {
   baseUrl: `https://imdb-api.com/en/API/`,
   // key: `k_nvs3d5mt`,
-  key: `k_2ck3tfdo`
+  // key: `k_2ck3tfdo`
+  key: `k_tjxj5k6p`
 }
 
 //Set local storage
 let movieItems = localStorage.getItem("movieItems");
 movieItems = JSON.parse(movieItems);
 
-let data;
+// let data;
 
 export default function MoviePage(props) {
+
+  const [Data, setData] = useState([])
 
   useEffect(() => {
     const getData = async () => {
@@ -35,7 +38,7 @@ export default function MoviePage(props) {
 
       if (!searchMovieInLocal()) {
         try {
-          data = await axios.get(`${imdbBasic.baseUrl}/Title/${imdbBasic.key}/${props.match.params.id}`);
+          let data = await axios.get(`${imdbBasic.baseUrl}/Title/${imdbBasic.key}/${props.match.params.id}`);
           let trailer = await axios.get(`${imdbBasic.baseUrl}/YouTubeTrailer/${imdbBasic.key}/${props.match.params.id}`);
           if (movieItems === null) {
             console.log("initializing local localStorage for the first time");
@@ -43,7 +46,7 @@ export default function MoviePage(props) {
               id: data.data.id,
               actorList: data.data.actorList,
               awards: data.data.awards,
-              budget: data.data.boxOffice.budget,
+              // budget: data.data.boxOffice.budget,
               companies: data.data.companies,
               tdirectors: data.data.directors,
               fullTitle: data.data.fullTitle,
@@ -59,19 +62,21 @@ export default function MoviePage(props) {
               starList: data.data.starList,
               stars: data.data.stars,
               title: data.data.title,
-              trailer: trailer.data.videoUrl,
+              trailer: trailer.data.videoId,
               writers: data.data.writers,
               year: data.data.year,
             }];
             localStorage.setItem("movieItems", JSON.stringify(movieItems));
+            setData(movieItems[0]);
+            console.log(Data);
           }
           else {
             console.log("Updaiting local localStorage");
-            movieItems.push({
+            let temp = {
               id: data.data.id,
               actorList: data.data.actorList,
               awards: data.data.awards,
-              budget: data.data.boxOffice.budget,
+              // budget: data.data.boxOffice.budget,
               companies: data.data.companies,
               tdirectors: data.data.directors,
               fullTitle: data.data.fullTitle,
@@ -87,11 +92,14 @@ export default function MoviePage(props) {
               starList: data.data.starList,
               stars: data.data.stars,
               title: data.data.title,
-              trailer: data.data.trailer,
+              trailer: trailer.data.videoId,
               writers: data.data.writers,
               year: data.data.year,
-            });
+            }
+            movieItems.push(temp);
             localStorage.setItem("movieItems", JSON.stringify(movieItems));
+            setData(temp);
+            console.log(Data);
           }
         }
         catch (e) {
@@ -100,18 +108,17 @@ export default function MoviePage(props) {
       }
       else {
         console.log(`Data was found at local storage`);
-        data = searchMovieInLocal();
+         setData(searchMovieInLocal());
+         console.log(Data);
       }
     }
-    getData()
+    getData();
   }, [props])
 
   return (
     <div>
-      <br />
-      <h1>This is Movie Page</h1>
       <SingleMoviePage
-        data={data} />
+        myData={Data} />
     </div>
   )
 }
