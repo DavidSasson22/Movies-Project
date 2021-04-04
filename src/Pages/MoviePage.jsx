@@ -7,14 +7,14 @@ const imdbBasic = {
   baseUrl: `https://imdb-api.com/en/API/`,
   // key: `k_nvs3d5mt`,
   // key: `k_2ck3tfdo`
-  key: `k_tjxj5k6p`
+  // key: `k_tjxj5k6p`
+  key: `k_r6q4a65u`,
 }
 
 //Set local storage
 let movieItems = localStorage.getItem("movieItems");
 movieItems = JSON.parse(movieItems);
 
-// let data;
 
 export default function MoviePage(props) {
 
@@ -26,7 +26,8 @@ export default function MoviePage(props) {
         if (movieItems !== null) {
           for (let movie of movieItems) {
             if (movie.id === props.match.params.id) {
-              return movie
+              setData(movie);
+              return true
             }
           }
           return false
@@ -41,7 +42,7 @@ export default function MoviePage(props) {
           let data = await axios.get(`${imdbBasic.baseUrl}/Title/${imdbBasic.key}/${props.match.params.id}`);
           let trailer = await axios.get(`${imdbBasic.baseUrl}/YouTubeTrailer/${imdbBasic.key}/${props.match.params.id}`);
           if (movieItems === null) {
-            console.log("initializing local localStorage for the first time");
+            console.log("initializing movieItems local localStorage for the first time");
             movieItems = [{
               id: data.data.id,
               actorList: data.data.actorList,
@@ -68,10 +69,9 @@ export default function MoviePage(props) {
             }];
             localStorage.setItem("movieItems", JSON.stringify(movieItems));
             setData(movieItems[0]);
-            console.log(Data);
           }
           else {
-            console.log("Updaiting local localStorage");
+            console.log("Updaiting movieItems localStorage");
             let temp = {
               id: data.data.id,
               actorList: data.data.actorList,
@@ -99,7 +99,6 @@ export default function MoviePage(props) {
             movieItems.push(temp);
             localStorage.setItem("movieItems", JSON.stringify(movieItems));
             setData(temp);
-            console.log(Data);
           }
         }
         catch (e) {
@@ -108,18 +107,16 @@ export default function MoviePage(props) {
       }
       else {
         console.log(`Data was found at local storage`);
-         setData(searchMovieInLocal());
-         console.log(Data);
+        searchMovieInLocal();
       }
     }
     getData();
-  }, [props])
+  }, [props.match.params.id])
 
   return (
-    <div>
+    <>
       <SingleMoviePage
         myData={Data} />
-    </div>
+    </>
   )
 }
-
