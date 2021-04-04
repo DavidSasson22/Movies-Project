@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MovieItem from '../NavBar/Movie/MovieItem';
+import MovieItem from '../Movie/MovieItem';
 
 
 export default function Movies({ movies }) {
