@@ -51,6 +51,7 @@ nav {
 
 
 .menu:hover {
+  color: #FFFFFF;
   filter: invert(0%);
   cursor: pointer;
 }

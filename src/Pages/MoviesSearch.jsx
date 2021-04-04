@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Movies from '../components/Display Movies/DisplayMovies';
 import SearchBar from '../components/SearchBar/SearchBar';
-import './style.css'
+
 
 
 //Set Api defult settings
 const imdbBasic = {
   baseUrl: `https://imdb-api.com/en/API/`,
-  key: `k_nvs3d5mt`,
+  // key: `k_nvs3d5mt`,
+  key: `k_2ck3tfdo`
 }
 
-//Set search categoris for the api[0] and for the search bar options[1]
+//Set search categoris for the api ([0]) and for the search bar options ([1])
 const searchCategories = {
   KeyWord: [`Search`, `Sarch by KeyWord`],
   title: [`SearchTitle`, `Search by title`],
@@ -31,8 +32,6 @@ searchResults = JSON.parse(searchResults);
 let myFAvorites = localStorage.getItem("myFAvorites");
 myFAvorites = JSON.parse(myFAvorites);
 
-let movieItems = localStorage.getItem("movieItems");
-movieItems = JSON.parse(movieItems);
 
 //Main function
 export default function MoviesSearchPage() {
@@ -41,27 +40,30 @@ export default function MoviesSearchPage() {
   const [searchTerm, setSearchTerm] = useState(`batman`);
   const [movies, setMovies] = useState([]);
 
-  const searchSearchTermInlocal = () => {
-    if (searchResults !== null) {
-      for (let item of searchResults) {
-        if (item.searchTerm === searchTerm && item.category === category) {
-          return item.value
+  useEffect(() => {
+    localStorage.clear();
+    //This fnction can check if user search is already exists in localStorage
+    const searchSearchTermInlocal = () => {
+      if (searchResults !== null) {
+        for (let item of searchResults) {
+          if (item.searchTerm === searchTerm && item.category === category) {
+            return item.value
+          }
         }
+        return false
       }
       return false
     }
-    return false
-  }
-
-  useEffect(() => {
     const getData = async () => {
+      //If user data does not exist in local, pull data frm IMDB API
       if (!searchSearchTermInlocal()) {
-        console.log(`could not find ${searchTerm} in ${category} in local localStorage`);
+        // console.log(`could not find ${searchTerm} in ${category} in local localStorage`);
         try {
           const data = await (await axios.get(`${imdbBasic.baseUrl}/${category}/${imdbBasic.key}/${searchTerm}`)).data.results;
           setMovies(data);
+          //If there is no local storage, create it
           if (searchResults === null) {
-            console.log("initializing local localStorage for the first time");
+            // console.log("initializing local localStorage for the first time");
             searchResults = [{
               searchTerm: searchTerm,
               category: category,
@@ -69,8 +71,9 @@ export default function MoviesSearchPage() {
             }]
             localStorage.setItem("searchResults", JSON.stringify(searchResults));
           }
+          //If local torage exist, update it
           else {
-            console.log(`updating local storage`);
+            // console.log(`updating local storage`);
             searchResults.push({
               searchTerm: searchTerm,
               category: category,
@@ -83,8 +86,9 @@ export default function MoviesSearchPage() {
           alert(`Error:${e.message} \n you may reached your 100 dayli calls to the server. If so, try agin in 24h`);
         }
       }
+      //If result found in local storage, set movie value by it
       else {
-        console.log(`Search term has found in local storage`);
+        // console.log(`Search term has found in local storage`);
         setMovies(searchSearchTermInlocal());
       }
     }
@@ -105,5 +109,3 @@ export default function MoviesSearchPage() {
     </div>
   )
 }
-
-
