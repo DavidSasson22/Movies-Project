@@ -224,6 +224,11 @@ Search Page
   text-align: center;
 }
 
+@media screen and (max-width: 576px) {
+  .categories{
+    margin-left: 0;
+  }
+}
 
 
 /*
