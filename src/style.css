@@ -343,6 +343,10 @@ Single Movie Page
 
 @media screen and (max-width: 400px) {
 
+  .container h1 {
+    font-size: medium;
+  }
+
   .poster {
     display: none;
   }
