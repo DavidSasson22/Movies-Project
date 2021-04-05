@@ -13,7 +13,7 @@ export default function NavBar() {
             <Link to = {`/movies`} className="menu"><span>SEARCH </span><i className="search icon"></i>
             </Link></li>
           <li className="menu"><span>FAVORITES </span><i className="heart icon"></i></li>
-          <li className="menu"><span>ANALIZE </span><i className="chart bar icon"></i></li>
+          <li className="menu"><span>ANALYZE </span><i className="chart bar icon"></i></li>
         </ul>
       </nav>
     </div>
