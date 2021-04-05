@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import './style.css'
 
 export default function SingleMoviePage({ myData }) {
 
@@ -38,6 +37,12 @@ export default function SingleMoviePage({ myData }) {
             </div>
           </div>
           <div className="footer">
+            <div className="singlePageBut">
+              <div>
+                <h4>Liked this movie?</h4>
+              </div>
+              <button><i className="heart icon"></i></button>
+            </div>
             <div className="mayLike">
               <div>
                 <h4>You may also like:</h4>
