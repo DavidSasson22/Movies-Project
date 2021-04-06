@@ -287,6 +287,11 @@ Single Movie Page
   margin: 4px 0 4px 0;
 }
 
+.data h4 span {
+  color: #95A3DB;
+  cursor: pointer;
+}
+
 .plot {
   display: flex;
   align-items: center;

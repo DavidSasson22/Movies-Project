@@ -1,10 +1,27 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function SingleMoviePage({ myData }) {
   console.log(myData);
 
-  const [activeDisplay, setActiveDisplay] = useState(0);
+  const [awardsDisplay, setAwardsDisplay] = useState(0);
+  const [companiesDisplay, setCompaniesDisplay] = useState(0);
+
+  const renderTextDisplay = (text, state) => {
+    if (text !== undefined) {
+      console.log(text.slice(0, 20));
+      console.log(state);
+      return state === 0 ? text.slice(0, 20) : text
+    }
+  }
+
+  const renderButtonDisplay = (state) => {
+    return state === 0 ? ` Read more...` : ` Read less`
+  }
+
+  const changeDisplay = (state, stateFun) => {
+    state === 0 ? stateFun(1) : stateFun(0)
+  }
 
   const renderSimilars = () => {
     if (typeof (myData.similars) === typeof ([])) {
@@ -27,9 +44,11 @@ export default function SingleMoviePage({ myData }) {
             <img src={myData.image} alt={myData.title} className="poster" />
             <iframe src={`https://www.youtube.com/embed/${myData.trailer}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="player"></iframe>
             <div className="data">
-              <h4>Awards: {myData.awards}</h4>
+              <h4>Awards: {renderTextDisplay(myData.awards, awardsDisplay)}
+              <span onClick={()=> changeDisplay(awardsDisplay, setAwardsDisplay)}>{renderButtonDisplay(awardsDisplay)}</span></h4>
               <hr />
-              <h4>Companies: {myData.companies}</h4>
+              <h4>Companies: {renderTextDisplay(myData.companies, companiesDisplay)}
+              <span onClick={()=> changeDisplay(companiesDisplay, setCompaniesDisplay)}>{renderButtonDisplay(companiesDisplay)}</span></h4>
               <hr />
               <h4>Genres: {myData.genres}</h4>
               <hr />
