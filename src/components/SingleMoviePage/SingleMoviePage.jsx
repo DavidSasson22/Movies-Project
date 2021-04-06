@@ -63,7 +63,9 @@ export default function SingleMoviePage({ myData }) {
           </div>
           <div className="mediaData">
             <img src={myData.image} alt={myData.title} className="poster" />
-            <iframe src={`https://www.youtube.com/embed/${myData.trailer}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="player"></iframe>
+            <iframe 
+            src={`https://www.youtube.com/embed/${myData.trailer}`} 
+            title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="player"></iframe>
             <div className="data">
               <h4>Directors: {renderTextDisplay(myData.tdirectors, directorsDisplay)}
                 <span onClick={() => changeDisplay(directorsDisplay, setDirectorsDisplay)}>{renderButtonDisplay(directorsDisplay)}</span></h4>
