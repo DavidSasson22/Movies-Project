@@ -473,8 +473,8 @@ Landing Page
 }
 
 .tvImage {
-  background-position: center;
-  background-size: contain;
+  background-position: center center;
+  object-fit: scale-down;
   height: 35vh;
   margin: 0 4px;
   margin-bottom: -50%;
