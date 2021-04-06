@@ -13,6 +13,7 @@ export default function LandingPage() {
           <div className="tvDexter tvImage"></div>
           <div className="tvfrinds tvImage"></div>
           <div className="tvGameOfThrones tvImage"></div>
+          <div className="howIMet tvImage"></div>
         </div>
         <div className="rightL">Right</div>
         <div className="footerL">Footer</div>

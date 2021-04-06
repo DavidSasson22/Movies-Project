@@ -457,15 +457,17 @@ Landing Page
   display: grid;
   gap: 8px;
   grid-template-areas:
-  'headline headline headline'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
-  'image1 image2 image3'
+  'headline headline headline headline'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
+  'image1 image2 image3 image4'
 }
 
 .tvHeader {
@@ -473,26 +475,30 @@ Landing Page
 }
 
 .tvImage {
-  background-position: center center;
-  object-fit: scale-down;
-  height: 35vh;
+  height: 100%;
+  width: 90%;
   margin: 0 4px;
   margin-bottom: -50%;
 }
 
 .tvDexter {
-  background: url(./Pages/img/dexter.jpg);
+  background: url(./Pages/img/dexter.jpg) no-repeat center center/cover;
   grid-area: image1;
 }
 
 .tvfrinds{
-  background: url(./Pages/img/frinds.jpg);
+  background: url(./Pages/img/frinds.jpg) no-repeat center center/cover;
   grid-area: image2;
 }
 
 .tvGameOfThrones {
-  background: url(./Pages/img/gameOfThrones.jpg);
+  background: url(./Pages/img/gameOfThrones.jpg) no-repeat center center/cover;
   grid-area: image3;
+}
+
+.howIMet {
+  background: url(./Pages/img/howIMetYourMother.jpg) no-repeat center center/cover;
+  grid-area: image4;
 }
 
 .rightL { grid-area: right; }
