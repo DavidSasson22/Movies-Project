@@ -341,7 +341,7 @@ Single Movie Page
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
 
   .container h1 {
     font-size: medium;
@@ -361,6 +361,7 @@ Single Movie Page
 
   .plot {
     padding: 12px;
+    max-width: 90vw;
   }
   
   .plot h4 {
@@ -372,13 +373,15 @@ Single Movie Page
   .footer {
     margin: 0 4px 4px 4px;
     padding: 0 2px 8px 2px;
+    max-width: 90vw;
   }
 
   .footer .mayLike ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 2px;
-    gap: 1rem;    
+    grid-template-columns: 0.8fr 0.8fr;
+    gap: 0.5rem; 
+    margin-right: 50%;
+    margin-left: 50%;
   }
 
   .footer .mayLike ul li {

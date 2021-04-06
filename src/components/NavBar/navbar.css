@@ -60,4 +60,7 @@ nav {
   .navbar .menu span {
     display: none;
   }
+  nav {
+    max-width: 100vw;
+  }
 }

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 export default function SingleMoviePage({ myData }) {
+  console.log(myData);
+
+  const [activeDisplay, setActiveDisplay] = useState(0);
 
   const renderSimilars = () => {
     if (typeof (myData.similars) === typeof ([])) {
