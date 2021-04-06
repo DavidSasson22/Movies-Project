@@ -2,14 +2,23 @@ import React from 'react'
 
 export default function LandingPage() {
   return (
-    <div>
+    <>
       <div className="landingPage">
         <div className="headerL">
           <h1>Welcom to David's Movie App!</h1>
         </div>
         <div className="menuL">
           <div className="howItWorks">
-            <h3>How does it work? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, necessitatibus aperiam reprehenderit delectus quos atque amet tenetur veritatis optio quo?</h3>
+            <h3>How does it work?</h3>
+            <p>
+              This website is designed to help you choose your next favorite movie or TV series.
+            </p>
+            <p>
+              Search for your favorite movies or TV series, and mark them as "liked". You will be able to view your choices at the "Favorite" section. The website will analyze different criterias of your choices. You will be able to see what is your favorite gener, decate, actor and more.
+            </p>
+            <p>
+              With this information, looking for the next binge will be a piece of cake!
+            </p>
           </div>
         </div>
         <div className="tv">
@@ -36,6 +45,6 @@ export default function LandingPage() {
           <div className="movieBackToThe tvImage"></div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -13,14 +13,14 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <div>
+        <>
           <NavBar />
           <Route path="/" exact component={LandingPage} />
           <Route path="/movies" exact component={MoviesSearchPage} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/movies/:id" exact component={MoviePage} />
           <Footer />
-        </div>
+        </>
       </BrowserRouter>
     </div>
   )

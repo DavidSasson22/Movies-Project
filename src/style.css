@@ -422,6 +422,7 @@ Landing Page
 
 .landingPage {
   margin-top: 40px;
+  width: 100vw;
   height: 120vh;
   display: grid;
   grid-gap: 4px;
@@ -448,8 +449,12 @@ Landing Page
 .menuL {
   grid-column: 1/5; 
   grid-row: 2/7;
-  display: flex;
-  flex-wrap: wrap; 
+  padding: 24px;
+ }
+
+ .menuL p {
+   font-size: 18px;
+   line-height: 32px;
  }
 
  .tv {
@@ -586,16 +591,25 @@ Landing Page
 }
 
 
+@media screen and (max-width: 600px) {
+  .landingPage {
+    display: flex;
+    max-width: 100vw;
+    height: auto;    
+  }
+
+  .landingPage .menuL {
+    padding: 8px;
+    height: 85vh;
+    width: 100vw;
+  }
+
+  .landingPage .menuL p {
+    font-size: 12px;
+  }
 
 
-
-
-
-
-
-
-
-
-.howItWorks {
-  /* max-width: 16.6vw; */
+  .headerL, .tv, .actorsL, .moviesL {
+    display: none;
+  }
 }
