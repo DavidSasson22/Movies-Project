@@ -1,5 +1,6 @@
 import { BrowserRouter, Route,  } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
+import Favorites from './Pages/Favorites';
 import MoviePage from './Pages/MoviePage';
 import MoviesSearchPage from './Pages/MoviesSearch'
 import './style.css'
@@ -13,6 +14,7 @@ export default function App() {
         <div>
         <NavBar/>
         <Route path="/movies" exact component={MoviesSearchPage} />
+        <Route path="/favorites" exact component={Favorites} />
         <Route path="/movies/:id" exact component= {MoviePage}/>
         </div>
       </BrowserRouter>

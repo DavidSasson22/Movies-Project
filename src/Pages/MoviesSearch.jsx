@@ -23,16 +23,9 @@ const searchCategories = {
   name: [`SearchName`, `Search by name (cast)`],
 }
 
-//Set search category for specific movie
-// const searchMovieInfo = `Title`;
-
-
 //Set local storage
 let searchResults = localStorage.getItem("searchResults");
 searchResults = JSON.parse(searchResults);
-
-// let myFAvorites = localStorage.getItem("myFAvorites");
-// myFAvorites = JSON.parse(myFAvorites);
 
 
 //Main function
