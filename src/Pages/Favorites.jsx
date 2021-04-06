@@ -11,7 +11,7 @@ export default function Favorites() {
 
   console.log(movies);
   return (
-    <div>
+    <div className="Favorites">
       <br />
       <br />
       <div className="myFavorites">

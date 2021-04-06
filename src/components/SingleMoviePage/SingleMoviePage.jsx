@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -42,7 +42,8 @@ export default function SingleMoviePage({ myData }) {
         movie.like = !movie.like;
         myData.like = !myData.like;
         console.log(movie.like);
-        setLike(movie.like)
+        setLike(movie.like);
+        console.log(like);
         localStorage.setItem("movieItems", JSON.stringify(movieItems));
         return
       }

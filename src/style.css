@@ -405,6 +405,9 @@ Single Movie Page
 My favorites
 =============
 */
+.Favorites {
+  min-height: 90vh;
+}
 
 .myFavorites {
   margin-top: 40px;
@@ -417,182 +420,167 @@ Landing Page
 ============
 */
 
-/* .landingPage {
+.landingPage {
   margin-top: 40px;
-  height: 140vh;
+  height: 120vh;
   display: grid;
-  grid-template-areas: 
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer';
-  grid-gap: 16px;
+  grid-gap: 4px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   background-color: #040404;
   padding: 10px;
 }
 
 .landingPage > div {
   background-color: #141414;
-  text-align: center;
-  padding: 20px 4px;
-  font-size: 30px;
   color: #bfc0c0;
   border: 1px solid #bfc0c0; 
 }
 
-.headerL { 
-  grid-area: header;
+.headerL {
+  grid-column: 1/13; 
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none !important;
+}
+
+.menuL {
+  grid-column: 1/5; 
+  grid-row: 2/7;
+  display: flex;
+  flex-wrap: wrap; 
+ }
+
+ .tv {
+  padding: 16px; 
+  grid-row: 2/5;
+  grid-column: 5/10; 
+  display: grid;
+  grid-column: repeat(3, 1fr);
+  grid-row: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.tvHeader {
+  grid-column: 1/4;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tv .tvHeader h3 {
+  margin: 0;
+}
+
+.tvDexter {
+  grid-row: 2/9;
+  grid-column: 1;
+  background: url(./Pages/img/dexter.jpg) no-repeat center center/cover;
+
+}
+
+.tvfrinds{
+  grid-row: 2/9;
+  grid-column: 2;
+  background: url(./Pages/img/frinds.jpg) no-repeat center center/cover;
+}
+
+.tvGameOfThrones {
+  grid-row: 2/9;
+  grid-column: 3;
+  background: url(./Pages/img/gameOfThrones.jpg) no-repeat center center/cover;
+}
+
+
+.actorsL {
+  padding: 16px;
+  grid-row: 2/5;
+  grid-column: 10/13; 
+  display: grid;
+  grid-column: repeat(3, 1fr);
+  grid-row: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.actorsHeader {
+  grid-row: 1;
+  grid-column: 1/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eastwood {
+  grid-row: 2/9;
+  grid-column: 1/4;
+  background: url(./Pages/img/eastwood.jpg) no-repeat center center/contain;
+}
+
+/* .monroe {
+  background: url(./Pages/img/monroe.jpg)no-repeat center center/contain;
+ }  */
+
+.moviesL {
+  grid-column: 5/13; 
+  grid-row: 5/7;
+  display: grid;
+  gap: 0px;
+ /*  */
 }
 
 .headerL h1 {
   color: white;
 }
 
-.menuL { 
-  grid-area: menu;
- }
-
-.tv {
-  padding: 0; 
-  grid-area: main;
-  display: grid;
-  gap: 8px;
-  grid-template-areas:
-  'headline headline headline headline'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-  'image1 image2 image3 image4'
-}
-
-.actorsL {
-  grid-area: main;
-  display: grid;
-  grid-area: right;
-  gap: 0px;
-  grid-template-areas:
-  'headline headline '
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-  'image1 image2'
-}
-
-
-.tvHeader {
-  grid-area: headline;
-}
 
 .tvImage {
-  height: 100%;
-  width: 90%;
-  margin: 0 4px;
-  margin-bottom: -50%;
   filter: grayscale(75%);
 }
 
-.tvDexter {
-  background: url(./Pages/img/dexter.jpg) no-repeat center center/contain;
-  grid-area: image1;
-}
 
-.tvfrinds{
-  background: url(./Pages/img/frinds.jpg) no-repeat center center/contain;
-  grid-area: image2;
-}
 
-.tvGameOfThrones {
-  background: url(./Pages/img/gameOfThrones.jpg) no-repeat center center/contain;
-  grid-area: image3;
-}
 
-.howIMet {
-  background: url(./Pages/img/howIMetYourMother.jpg) no-repeat center center/contain;
-  grid-area: image4;
-}
 
-.actorsHeader {
-  grid-area: headline;
-}
 
-.eastwood {
-  background: url(./Pages/img/eastwood.jpg) no-repeat center center/contain;
-  grid-area: image1;
-  margin-left: 16px;
-}
 
-.monroe {
-  background: url(./Pages/img/monroe.jpg)no-repeat center center/contain;
-  grid-area: image2;
-}
-
-.moviesL {
-  grid-area: footer;
-  display: grid;
-  gap: 0px;
-  grid-template-areas:
-  'headline headline headline headline headline headline'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-  'image1 image2 image3 image4 image5 image6'
-}
 
 .movieJoker {
-  grid-area: image1;
+  /* grid-area: image1; */
   background: url(./Pages/img/joker.jpg)no-repeat center center/contain;
 }
 
 .movieGurdians{
-  grid-area: image2;
+  /* grid-area: image2; */
   background: url(./Pages/img/gurdians.jpg)no-repeat center center/contain;
 }
 
 .movieIsntItRomantic{
   background: url(./Pages/img/romantic.jpg)no-repeat center center/contain;
-  grid-area: image3;
+  /* grid-area: image3; */
 }
 
 .movieCatchMe {
   background: url(./Pages/img/catchMe.jpg)no-repeat center center/contain;
-  grid-area: image4;
+  /* grid-area: image4; */
 }
 
 .movieMemento {
   background: url(./Pages/img/memento.jpg)no-repeat center center/contain;
-  grid-area: image5;
+  /* grid-area: image5; */
 }
 
 .movieBackToThe {
   background: url(./Pages/img/backToTheFuture.jpg)no-repeat center center/contain;
-  grid-area: image6;
+  /* grid-area: image6; */
 }
 
 .movieHeader {
-  grid-area: headline;
+  /* grid-area: headline; */
 }
 
 .howItWorks {
-  width: 15vw;
-  background-color: #FF6257;
-} */
+  /* max-width: 16.6vw; */
+}

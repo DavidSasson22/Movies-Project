@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/movies" exact component={MoviesSearchPage} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/movies/:id" exact component={MoviePage} />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

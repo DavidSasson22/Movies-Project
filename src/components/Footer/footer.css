@@ -1,4 +1,4 @@
-/* *{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,7 +27,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.footer{
+.footerNav .footer{
   display: flex;
   box-sizing: content-box;
   justify-content: space-evenly;
@@ -44,12 +44,12 @@
   font-size: medium;
 }
 
-.footer li h4 {
+.footerNav .footer li h4 {
   color: #fadf63;
   cursor:initial;
 }
 
-.footer .menu a {
+.footerNav .footer .menu a {
   color: #00e0a1;
   font-size: 24px;
 }
@@ -67,4 +67,4 @@
   nav {
     max-width: 100vw;
   }
-} */
+}
