@@ -107,6 +107,7 @@ export default function MoviesSearchPage() {
       />
       <Movies
         movies={movies}
+        category = {category}
       />
     </div>
   )
