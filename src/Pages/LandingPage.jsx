@@ -7,7 +7,12 @@ export default function LandingPage() {
         <div className="headerL">
           <h1>Welcom to David's Movie App!</h1>
         </div>
-        <div className="menuL">Menu</div>
+        <div className="menuL">
+          <div className="howItWorks">
+            <h3>How does it work?</h3>
+          </div>
+          
+        </div>
         <div className="tv">
           <div className="tvHeader"><h3>T.V. Series</h3></div>
           <div className="tvDexter tvImage"></div>

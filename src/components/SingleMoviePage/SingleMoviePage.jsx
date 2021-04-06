@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -40,7 +40,8 @@ export default function SingleMoviePage({ myData }) {
     for (let movie of movieItems) {
       if (movie.id === myData.id) {
         movie.like = !movie.like;
-        setLike(!like);
+        myData.like = !myData.like;
+        console.log(movie.like);
         setLike(movie.like)
         localStorage.setItem("movieItems", JSON.stringify(movieItems));
         return
@@ -93,7 +94,7 @@ export default function SingleMoviePage({ myData }) {
               <div>
                 <h4>Liked this movie?</h4>
               </div>
-              <button onClick={() => changeMyLikes()}><i className={like ? `heart icon red` : `heart icon white`}></i></button>
+              <button onClick={() => changeMyLikes()}><i className={myData.like ? `heart icon red` : `heart icon white`}></i></button>
             </div>
             <div className="mayLike">
               <div>

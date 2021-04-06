@@ -417,11 +417,11 @@ Landing Page
 ============
 */
 
-.landingPage {
+/* .landingPage {
   margin-top: 40px;
   height: 140vh;
   display: grid;
-  grid-template-areas:
+  grid-template-areas: 
     'header header header header header header'
     'menu main main main right right'
     'menu footer footer footer footer footer';
@@ -450,7 +450,9 @@ Landing Page
   color: white;
 }
 
-.menuL { grid-area: menu; }
+.menuL { 
+  grid-area: menu;
+ }
 
 .tv {
   padding: 0; 
@@ -589,3 +591,8 @@ Landing Page
 .movieHeader {
   grid-area: headline;
 }
+
+.howItWorks {
+  width: 15vw;
+  background-color: #FF6257;
+} */
