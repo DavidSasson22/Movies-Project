@@ -457,9 +457,9 @@ Landing Page
   grid-row: 2/5;
   grid-column: 5/10; 
   display: grid;
-  grid-column: repeat(3, 1fr);
-  grid-row: repeat(8, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 16px;
 }
 
 .tvHeader {
@@ -500,9 +500,9 @@ Landing Page
   grid-row: 2/5;
   grid-column: 10/13; 
   display: grid;
-  grid-column: repeat(3, 1fr);
-  grid-row: repeat(8, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 16px;
 }
 
 .actorsHeader {
@@ -519,16 +519,61 @@ Landing Page
   background: url(./Pages/img/eastwood.jpg) no-repeat center center/contain;
 }
 
-/* .monroe {
-  background: url(./Pages/img/monroe.jpg)no-repeat center center/contain;
- }  */
 
 .moviesL {
   grid-column: 5/13; 
   grid-row: 5/7;
+  padding: 16px;
   display: grid;
-  gap: 0px;
- /*  */
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 16px;
+}
+
+.movieHeader {
+  grid-row: 1;
+  grid-column: 1/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieJoker {
+  grid-row: 2/9;
+  grid-column: 1;
+  background: url(./Pages/img/joker.jpg)no-repeat center center/contain;
+}
+
+.movieGurdians{
+  grid-row: 2/9;
+  grid-column: 2;
+  background: url(./Pages/img/gurdians.jpg)no-repeat center center/contain;
+}
+
+.movieIsntItRomantic{
+  grid-row: 2/9;
+  grid-column: 3;
+  background: url(./Pages/img/romantic.jpg)no-repeat center center/contain;
+  
+}
+
+.movieCatchMe {
+  grid-row: 2/9;
+  grid-column: 4;
+  background: url(./Pages/img/catchMe.jpg)no-repeat center center/contain;
+}
+  
+
+.movieMemento {
+  grid-row: 2/9;
+  grid-column: 5;
+  background: url(./Pages/img/memento.jpg)no-repeat center center/contain;
+}
+
+.movieBackToThe {
+  grid-row: 2/9;
+  grid-column: 6;
+  background: url(./Pages/img/backToTheFuture.jpg)no-repeat center center/contain;
 }
 
 .headerL h1 {
@@ -547,39 +592,9 @@ Landing Page
 
 
 
-.movieJoker {
-  /* grid-area: image1; */
-  background: url(./Pages/img/joker.jpg)no-repeat center center/contain;
-}
 
-.movieGurdians{
-  /* grid-area: image2; */
-  background: url(./Pages/img/gurdians.jpg)no-repeat center center/contain;
-}
 
-.movieIsntItRomantic{
-  background: url(./Pages/img/romantic.jpg)no-repeat center center/contain;
-  /* grid-area: image3; */
-}
 
-.movieCatchMe {
-  background: url(./Pages/img/catchMe.jpg)no-repeat center center/contain;
-  /* grid-area: image4; */
-}
-
-.movieMemento {
-  background: url(./Pages/img/memento.jpg)no-repeat center center/contain;
-  /* grid-area: image5; */
-}
-
-.movieBackToThe {
-  background: url(./Pages/img/backToTheFuture.jpg)no-repeat center center/contain;
-  /* grid-area: image6; */
-}
-
-.movieHeader {
-  /* grid-area: headline; */
-}
 
 .howItWorks {
   /* max-width: 16.6vw; */

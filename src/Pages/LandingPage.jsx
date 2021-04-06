@@ -27,13 +27,13 @@ export default function LandingPage() {
           {/* <div className="monroe tvImage"></div> */}
         </div>
         <div className="moviesL">
-          {/* <div className="movieHeader"><h3>Movies</h3></div>
+          <div className="movieHeader"><h3>Movies</h3></div>
           <div className="movieJoker tvImage"></div>
           <div className="movieGurdians tvImage"></div>
           <div className="movieIsntItRomantic tvImage"></div>
           <div className="movieCatchMe tvImage"></div>
           <div className="movieMemento tvImage"></div>
-          <div className="movieBackToThe tvImage"></div> */}
+          <div className="movieBackToThe tvImage"></div>
         </div>
       </div>
     </div>
