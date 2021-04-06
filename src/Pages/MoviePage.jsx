@@ -47,7 +47,6 @@ export default function MoviePage(props) {
               id: data.data.id,
               actorList: data.data.actorList,
               awards: data.data.awards,
-              // budget: data.data.boxOffice.budget,
               companies: data.data.companies,
               tdirectors: data.data.directors,
               fullTitle: data.data.fullTitle,
@@ -66,6 +65,7 @@ export default function MoviePage(props) {
               trailer: trailer.data.videoId,
               writers: data.data.writers,
               year: data.data.year,
+              like: false
             }];
             localStorage.setItem("movieItems", JSON.stringify(movieItems));
             setData(movieItems[0]);
@@ -76,7 +76,6 @@ export default function MoviePage(props) {
               id: data.data.id,
               actorList: data.data.actorList,
               awards: data.data.awards,
-              // budget: data.data.boxOffice.budget,
               companies: data.data.companies,
               tdirectors: data.data.directors,
               fullTitle: data.data.fullTitle,
@@ -95,6 +94,7 @@ export default function MoviePage(props) {
               trailer: trailer.data.videoId,
               writers: data.data.writers,
               year: data.data.year,
+              like: false
             }
             movieItems.push(temp);
             localStorage.setItem("movieItems", JSON.stringify(movieItems));

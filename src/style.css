@@ -200,7 +200,7 @@ Search Page
   height: 40px;
   background-color: transparent;
   border-style: none;
-  color: #FF6257;
+  outline-style: none;
 }
 
 .singlePageBut button:hover{
@@ -210,7 +210,10 @@ Search Page
 .singlePageBut button i {
   margin-top: 4px;
   font-size: 24px;
-  color: #ffa9a3
+}
+
+.white {
+  color: #e8e8e8;
 }
 
 @media screen and (min-width: 576px) {
