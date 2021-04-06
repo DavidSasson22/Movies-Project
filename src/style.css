@@ -410,3 +410,90 @@ My favorites
   margin-top: 40px;
   text-align: center;
 }
+
+/*
+============
+Landing Page
+============
+*/
+
+.landingPage {
+  margin-top: 40px;
+  height: 120vh;
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #040404;
+  padding: 10px;
+}
+
+.landingPage > div {
+  background-color: #141414;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  color: #bfc0c0;
+}
+
+.headerL { 
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerL h1 {
+  color: white;
+}
+
+.menuL { grid-area: menu; }
+
+.tv {
+  padding: 0; 
+  grid-area: main;
+  display: grid;
+  gap: 8px;
+  grid-template-areas:
+  'headline headline headline'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+  'image1 image2 image3'
+}
+
+.tvHeader {
+  grid-area: headline;
+}
+
+.tvImage {
+  background-position: center;
+  background-size: contain;
+  height: 35vh;
+  margin: 0 4px;
+  margin-bottom: -50%;
+}
+
+.tvDexter {
+  background: url(./Pages/img/dexter.jpg);
+  grid-area: image1;
+}
+
+.tvfrinds{
+  background: url(./Pages/img/frinds.jpg);
+  grid-area: image2;
+}
+
+.tvGameOfThrones {
+  background: url(./Pages/img/gameOfThrones.jpg);
+  grid-area: image3;
+}
+
+.rightL { grid-area: right; }
+.footerL { grid-area: footer; }
