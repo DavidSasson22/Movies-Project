@@ -14,6 +14,9 @@ export default function Favorites() {
     <div>
       <br />
       <br />
+      <div className="myFavorites">
+      <h2>My favorites</h2>
+      </div>
       <Movies
         movies={movies}
       />

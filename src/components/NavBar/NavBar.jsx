@@ -7,7 +7,7 @@ export default function NavBar() {
     <div>
       <nav>
         <ul className="navbar">
-          <li className="menu"><i className="film icon"></i></li>
+          {/* <li className="menu"><i className="film icon"></i></li> */}
           <li className="menu"><span>HOME </span><i className="home icon"></i></li>
           <li className="menu">
             <Link to = {`/movies`} className="menu"><span>SEARCH </span><i className="search icon"></i>

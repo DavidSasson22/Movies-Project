@@ -399,3 +399,14 @@ Single Movie Page
     height: 2.5rem;
   }
 }
+
+/*
+=============
+My favorites
+=============
+*/
+
+.myFavorites {
+  margin-top: 40px;
+  text-align: center;
+}

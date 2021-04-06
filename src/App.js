@@ -1,4 +1,5 @@
-import { BrowserRouter, Route,  } from 'react-router-dom';
+import { BrowserRouter, Route, } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Favorites from './Pages/Favorites';
 import MoviePage from './Pages/MoviePage';
@@ -12,10 +13,13 @@ export default function App() {
     <div>
       <BrowserRouter>
         <div>
-        <NavBar/>
-        <Route path="/movies" exact component={MoviesSearchPage} />
-        <Route path="/favorites" exact component={Favorites} />
-        <Route path="/movies/:id" exact component= {MoviePage}/>
+          <NavBar />
+          <Route path="/movies" exact component={MoviesSearchPage} />
+          <Route path="/favorites" exact component={Favorites} />
+          <Route path="/movies/:id" exact component={MoviePage} />
+          <div>
+            <Footer />
+          </div>
         </div>
       </BrowserRouter>
     </div>
