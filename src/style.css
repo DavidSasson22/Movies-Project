@@ -419,13 +419,13 @@ Landing Page
 
 .landingPage {
   margin-top: 40px;
-  height: 120vh;
+  height: 140vh;
   display: grid;
   grid-template-areas:
     'header header header header header header'
     'menu main main main right right'
     'menu footer footer footer footer footer';
-  grid-gap: 10px;
+  grid-gap: 16px;
   background-color: #040404;
   padding: 10px;
 }
@@ -433,9 +433,10 @@ Landing Page
 .landingPage > div {
   background-color: #141414;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px 4px;
   font-size: 30px;
   color: #bfc0c0;
+  border: 1px solid #bfc0c0; 
 }
 
 .headerL { 
@@ -470,6 +471,26 @@ Landing Page
   'image1 image2 image3 image4'
 }
 
+.actorsL {
+  grid-area: main;
+  display: grid;
+  grid-area: right;
+  gap: 0px;
+  grid-template-areas:
+  'headline headline '
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+  'image1 image2'
+}
+
+
 .tvHeader {
   grid-area: headline;
 }
@@ -479,27 +500,92 @@ Landing Page
   width: 90%;
   margin: 0 4px;
   margin-bottom: -50%;
+  filter: grayscale(75%);
 }
 
 .tvDexter {
-  background: url(./Pages/img/dexter.jpg) no-repeat center center/cover;
+  background: url(./Pages/img/dexter.jpg) no-repeat center center/contain;
   grid-area: image1;
 }
 
 .tvfrinds{
-  background: url(./Pages/img/frinds.jpg) no-repeat center center/cover;
+  background: url(./Pages/img/frinds.jpg) no-repeat center center/contain;
   grid-area: image2;
 }
 
 .tvGameOfThrones {
-  background: url(./Pages/img/gameOfThrones.jpg) no-repeat center center/cover;
+  background: url(./Pages/img/gameOfThrones.jpg) no-repeat center center/contain;
   grid-area: image3;
 }
 
 .howIMet {
-  background: url(./Pages/img/howIMetYourMother.jpg) no-repeat center center/cover;
+  background: url(./Pages/img/howIMetYourMother.jpg) no-repeat center center/contain;
   grid-area: image4;
 }
 
-.rightL { grid-area: right; }
-.footerL { grid-area: footer; }
+.actorsHeader {
+  grid-area: headline;
+}
+
+.eastwood {
+  background: url(./Pages/img/eastwood.jpg) no-repeat center center/contain;
+  grid-area: image1;
+  margin-left: 16px;
+}
+
+.monroe {
+  background: url(./Pages/img/monroe.jpg)no-repeat center center/contain;
+  grid-area: image2;
+}
+
+.moviesL {
+  grid-area: footer;
+  display: grid;
+  gap: 0px;
+  grid-template-areas:
+  'headline headline headline headline headline headline'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+  'image1 image2 image3 image4 image5 image6'
+}
+
+.movieJoker {
+  grid-area: image1;
+  background: url(./Pages/img/joker.jpg)no-repeat center center/contain;
+}
+
+.movieGurdians{
+  grid-area: image2;
+  background: url(./Pages/img/gurdians.jpg)no-repeat center center/contain;
+}
+
+.movieIsntItRomantic{
+  background: url(./Pages/img/romantic.jpg)no-repeat center center/contain;
+  grid-area: image3;
+}
+
+.movieCatchMe {
+  background: url(./Pages/img/catchMe.jpg)no-repeat center center/contain;
+  grid-area: image4;
+}
+
+.movieMemento {
+  background: url(./Pages/img/memento.jpg)no-repeat center center/contain;
+  grid-area: image5;
+}
+
+.movieBackToThe {
+  background: url(./Pages/img/backToTheFuture.jpg)no-repeat center center/contain;
+  grid-area: image6;
+}
+
+.movieHeader {
+  grid-area: headline;
+}
