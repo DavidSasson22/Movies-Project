@@ -24,6 +24,8 @@ export default class Canvas extends Component {
 
     const options = {
 
+      colorSet: "colorSet3",
+
       axisX: {
         labelFontColor: "#e8e8e8"
       },

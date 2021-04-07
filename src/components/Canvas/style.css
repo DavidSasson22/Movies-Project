@@ -10,6 +10,7 @@
 .myGraph {
   width: 80vw;
   margin: auto;
+  margin-top: 75px;
   display: block;
 }
 
@@ -18,4 +19,15 @@
   width: 50vw;
   display: flex;
   justify-content: space-around;
+}
+
+.analizeButtons input {
+  padding: 8px;
+  outline-style: none;
+  border-style:solid ;
+  border-radius: 16px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
 }
