@@ -39,7 +39,7 @@ export default function Movies({ movies, category }) {
     else {
       return (
         <div className="errorMessage">
-          <h3>OOPS! Your search did not return any results</h3>
+          <h3>OOPS! Nothing here</h3>
         </div>)
     }
   }

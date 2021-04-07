@@ -16,12 +16,20 @@ export default function SingleMoviePage({ myData }) {
 
   const renderTextDisplay = (text, state) => {
     if (text !== undefined) {
-      return state === 0 ? text.slice(0, 20) : text
+      if (text.length > 43) {
+        return state === 0 ? text.slice(0, 20) : text
+      }
+      else {
+        return text
+      }
     }
   }
 
-  const renderButtonDisplay = (state) => {
-    return state === 0 ? ` Read more...` : ` Read less`
+
+  const renderButtonDisplay = (state, text) => {
+    if (text !== undefined) {
+      return text.length > 43 ? (state === 0 ? ` Read more...` : ` Read less`) : ``
+    }
   }
 
   const changeDisplay = (state, stateFun) => {
@@ -41,7 +49,6 @@ export default function SingleMoviePage({ myData }) {
       if (movie.id === myData.id) {
         movie.like = !movie.like;
         myData.like = !myData.like;
-        console.log(movie.like);
         setLike(movie.like);
         console.log(like);
         localStorage.setItem("movieItems", JSON.stringify(movieItems));
@@ -63,30 +70,30 @@ export default function SingleMoviePage({ myData }) {
           </div>
           <div className="mediaData">
             <img src={myData.image} alt={myData.title} className="poster" />
-            <iframe 
-            src={`https://www.youtube.com/embed/${myData.trailer}`} 
-            title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="player"></iframe>
+            <iframe
+              src={`https://www.youtube.com/embed/${myData.trailer}`}
+              title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="player"></iframe>
             <div className="data">
               <h4>Directors: {renderTextDisplay(myData.tdirectors, directorsDisplay)}
-                <span onClick={() => changeDisplay(directorsDisplay, setDirectorsDisplay)}>{renderButtonDisplay(directorsDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(directorsDisplay, setDirectorsDisplay)}>{renderButtonDisplay(directorsDisplay, myData.tdirectors)}</span></h4>
               <hr />
               <h4>Awards: {renderTextDisplay(myData.awards, awardsDisplay)}
-                <span onClick={() => changeDisplay(awardsDisplay, setAwardsDisplay)}>{renderButtonDisplay(awardsDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(awardsDisplay, setAwardsDisplay)}>{renderButtonDisplay(awardsDisplay, myData.awards)}</span></h4>
               <hr />
               <h4>Companies: {renderTextDisplay(myData.companies, companiesDisplay)}
-                <span onClick={() => changeDisplay(companiesDisplay, setCompaniesDisplay)}>{renderButtonDisplay(companiesDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(companiesDisplay, setCompaniesDisplay)}>{renderButtonDisplay(companiesDisplay, myData.companies)}</span></h4>
               <hr />
               <h4>Genres: {renderTextDisplay(myData.genres, genresDisplay)}
-                <span onClick={() => changeDisplay(genresDisplay, setGenresDisplay)}>{renderButtonDisplay(genresDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(genresDisplay, setGenresDisplay)}>{renderButtonDisplay(genresDisplay, myData.genres)}</span></h4>
               <hr />
               <h4>Languages: {renderTextDisplay(myData.languages, languagesDisplay)}
                 <span onClick={() => changeDisplay(languagesDisplay, setLanguagesDisplay)}>{renderButtonDisplay(languagesDisplay)}</span></h4>
               <hr />
               <h4>Stars: {renderTextDisplay(myData.stars, starsDisplay)}
-                <span onClick={() => changeDisplay(starsDisplay, setStarsDisplay)}>{renderButtonDisplay(starsDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(starsDisplay, setStarsDisplay)}>{renderButtonDisplay(starsDisplay, myData.stars)}</span></h4>
               <hr />
               <h4>Writers: {renderTextDisplay(myData.writers, writersDisplay)}
-                <span onClick={() => changeDisplay(writersDisplay, setWritersDisplay)}>{renderButtonDisplay(writersDisplay)}</span></h4>
+                <span onClick={() => changeDisplay(writersDisplay, setWritersDisplay)}>{renderButtonDisplay(writersDisplay, myData.writers)}</span></h4>
             </div>
             <div className="plot">
               <h4>{myData.plot}</h4>
