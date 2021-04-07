@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, } from 'react-router-dom';
+import CanvasPage from './components/Canvas/CanvasPage';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Favorites from './Pages/Favorites';
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/movies" exact component={MoviesSearchPage} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/movies/:id" exact component={MoviePage} />
+          <Route path="/analyze/" exact component={CanvasPage} />
           <Footer />
         </>
       </BrowserRouter>

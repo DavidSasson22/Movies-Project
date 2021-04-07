@@ -18,7 +18,10 @@ export default function NavBar() {
             <Link to={`/favorites`} className="menu">
               <span>FAVORITES </span><i className="heart icon"></i>
             </Link></li>
-          <li className="menu"><span>ANALYZE </span><i className="chart bar icon"></i></li>
+          <li className="menu">
+            <Link to={`/analyze`} className="menu">
+              <span>ANALYZE </span><i className="chart bar icon"></i>
+            </Link></li>
         </ul>
       </nav>
     </div>
