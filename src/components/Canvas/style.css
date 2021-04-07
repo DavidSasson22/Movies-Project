@@ -31,3 +31,12 @@
   cursor: pointer;
   font-weight: 700;
 }
+
+@media screen and (max-width: 600px) {
+  .myGraphContainer {
+  min-height: 90vh;
+  }
+  .analizeButtons {
+    width: 100%;
+  }
+}
