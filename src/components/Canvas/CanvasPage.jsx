@@ -9,7 +9,6 @@ export default function CanvasPage() {
   movieItems = JSON.parse(movieItems);
 
   const movies = movieItems.filter(movie => movie.like);
-  console.log(movies);
 
   const myDataBase = {
     genre: {},
@@ -30,8 +29,6 @@ export default function CanvasPage() {
     movie.tdirectors in myDataBase.tdirectors ? myDataBase.tdirectors[movie.tdirectors] += 1 : myDataBase.tdirectors[movie.tdirectors] = 1;
   })
 
-
-  console.log(myDataBase);
 
   const actors = myDataBase.actors;
   const decade = myDataBase.decade;

@@ -9,7 +9,6 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 export default class Canvas extends Component {
 
   render() {
-    console.log(this.props.myDataBase);
 
     let dataPoints0 = [];
     for (let key in this.props.myDataBase){
@@ -18,8 +17,6 @@ export default class Canvas extends Component {
         y: this.props.myDataBase[key]
       })
     }
-
-    console.log(dataPoints0);
 
 
     const options = {
