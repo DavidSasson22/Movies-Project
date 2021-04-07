@@ -44,6 +44,8 @@ export default function CanvasPage() {
 
   return (
     <div className="myGraphContainer">
+      <Canvas
+        myDataBase={sendDataToAnalyze} />
       <div className="analizeButtons">
         <input type="button" value="Genre"
           onClick={() => setSendDataToAnalyze(genre)}
@@ -58,8 +60,6 @@ export default function CanvasPage() {
           onClick={() => setSendDataToAnalyze(actors)}
         />
       </div>
-      <Canvas
-        myDataBase={sendDataToAnalyze} />
     </div>
   )
 }
