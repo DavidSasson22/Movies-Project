@@ -38,6 +38,15 @@ export default function CanvasPage() {
   const [sendDataToAnalyze, setSendDataToAnalyze] = useState(actors);
 
 
+  const getTop = (object) => {
+    const keys = Object.keys(object);
+    keys.sort((a, b)=>  object[b] - object[a]);
+    let temp = keys.length < 10 ? keys.slice(0,keys.length) :  keys.slice(0, 10);
+    let result = {};
+    temp.forEach(key => result[key] = object[key]);
+    return result
+  }
+
 
   return (
     <div className="myGraphContainer">
@@ -45,16 +54,16 @@ export default function CanvasPage() {
         myDataBase={sendDataToAnalyze} />
       <div className="analizeButtons">
         <input type="button" value="Genre"
-          onClick={() => setSendDataToAnalyze(genre)}
+          onClick={() => setSendDataToAnalyze(getTop(genre))}
         />
         <input type="button" value="Decade"
-          onClick={() => setSendDataToAnalyze(decade)}
+          onClick={() => setSendDataToAnalyze(getTop(decade))}
         />
         <input type="button" value="Director"
-          onClick={() => setSendDataToAnalyze(tdirectors)}
+          onClick={() => setSendDataToAnalyze(getTop(tdirectors))}
         />
         <input type="button" value="Actors"
-          onClick={() => setSendDataToAnalyze(actors)}
+          onClick={() => setSendDataToAnalyze(getTop(actors))}
         />
       </div>
     </div>
