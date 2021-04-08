@@ -29,15 +29,7 @@ export default function CanvasPage() {
     movie.tdirectors in myDataBase.tdirectors ? myDataBase.tdirectors[movie.tdirectors] += 1 : myDataBase.tdirectors[movie.tdirectors] = 1;
   })
 
-
-  const actors = myDataBase.actors;
-  const decade = myDataBase.decade;
-  const genre = myDataBase.genre;
-  const tdirectors = myDataBase.tdirectors;
-
-  const [sendDataToAnalyze, setSendDataToAnalyze] = useState(actors);
-
-
+  
   const getTop = (object) => {
     const keys = Object.keys(object);
     keys.sort((a, b)=>  object[b] - object[a]);
@@ -46,6 +38,16 @@ export default function CanvasPage() {
     temp.forEach(key => result[key] = object[key]);
     return result
   }
+
+  
+  const actors = myDataBase.actors;
+  const decade = myDataBase.decade;
+  const genre = myDataBase.genre;
+  const tdirectors = myDataBase.tdirectors;
+
+  const [sendDataToAnalyze, setSendDataToAnalyze] = useState(getTop(actors));
+
+
 
 
   return (
