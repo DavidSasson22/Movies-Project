@@ -7,7 +7,9 @@ export default function Favorites() {
   movieItems = JSON.parse(movieItems);
   const movies = [];
 
-  movieItems.forEach(movie => movie.like && movies.push(movie))
+  if (movieItems !== null) {
+    movieItems.forEach(movie => movie.like && movies.push(movie))
+  }
 
   console.log(movies);
   return (
@@ -15,7 +17,7 @@ export default function Favorites() {
       <br />
       <br />
       <div className="myFavorites">
-      <h2>My favorites</h2>
+        <h2>My favorites</h2>
       </div>
       <Movies
         movies={movies}
