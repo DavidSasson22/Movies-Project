@@ -8,7 +8,11 @@ export default function CanvasPage() {
   let movieItems = localStorage.getItem("movieItems");
   movieItems = JSON.parse(movieItems);
 
-  const movies = movieItems.filter(movie => movie.like);
+  let movies;
+
+  if (movieItems !== null) {
+    movies = movieItems.filter(movie => movie.like);
+  }
 
   const myDataBase = {
     genre: {},
@@ -17,37 +21,43 @@ export default function CanvasPage() {
     tdirectors: {},
   };
 
-  movies.forEach(movie => {
-    movie.genreList.forEach(genre => {
-      genre.key in myDataBase.genre ? myDataBase.genre[genre.key] += 1 : myDataBase.genre[genre.key] = 1;
+  if (movies !== undefined) {
+    movies.forEach(movie => {
+      movie.genreList.forEach(genre => {
+        genre.key in myDataBase.genre ? myDataBase.genre[genre.key] += 1 : myDataBase.genre[genre.key] = 1;
+      })
+      let decade = movie.releaseDate.slice(0, 3) + `0`;
+      decade in myDataBase.decade ? myDataBase.decade[decade] += 1 : myDataBase.decade[decade] = 1;
+      movie.actorList.forEach(actor => {
+        actor.name in myDataBase.actors ? myDataBase.actors[actor.name] += 1 : myDataBase.actors[actor.name] = 1;
+      })
+      movie.tdirectors in myDataBase.tdirectors ? myDataBase.tdirectors[movie.tdirectors] += 1 : myDataBase.tdirectors[movie.tdirectors] = 1;
     })
-    let decade = movie.releaseDate.slice(0, 3) + `0`;
-    decade in myDataBase.decade ? myDataBase.decade[decade] += 1 : myDataBase.decade[decade] = 1;
-    movie.actorList.forEach(actor => {
-      actor.name in myDataBase.actors ? myDataBase.actors[actor.name] += 1 : myDataBase.actors[actor.name] = 1;
-    })
-    movie.tdirectors in myDataBase.tdirectors ? myDataBase.tdirectors[movie.tdirectors] += 1 : myDataBase.tdirectors[movie.tdirectors] = 1;
-  })
+  }
 
-  
+
   const getTop = (object) => {
     const keys = Object.keys(object);
-    keys.sort((a, b)=>  object[b] - object[a]);
-    let temp = keys.length < 10 ? keys.slice(0,keys.length) :  keys.slice(0, 10);
+    keys.sort((a, b) => object[b] - object[a]);
+    let temp = keys.length < 10 ? keys.slice(0, keys.length) : keys.slice(0, 10);
     let result = {};
     temp.forEach(key => result[key] = object[key]);
     return result
   }
 
-  
-  const actors = myDataBase.actors;
-  const decade = myDataBase.decade;
-  const genre = myDataBase.genre;
-  const tdirectors = myDataBase.tdirectors;
+  let actors;
+  let decade;
+  let genre;
+  let tdirectors;
+
+  if (myDataBase) {
+    actors = myDataBase.actors;
+    decade = myDataBase.decade;
+    genre = myDataBase.genre;
+    tdirectors = myDataBase.tdirectors;
+  }
 
   const [sendDataToAnalyze, setSendDataToAnalyze] = useState(getTop(actors));
-
-
 
 
   return (
