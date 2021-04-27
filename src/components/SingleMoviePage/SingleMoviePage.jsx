@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 export default function SingleMoviePage({ myData }) {
 
+  window.scrollTo(0, 0);
+
   const [awardsDisplay, setAwardsDisplay] = useState(0);
   const [companiesDisplay, setCompaniesDisplay] = useState(0);
   const [genresDisplay, setGenresDisplay] = useState(0);
