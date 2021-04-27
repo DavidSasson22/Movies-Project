@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom'
 
 export default function SingleMoviePage({ myData }) {
 
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
 
   const [awardsDisplay, setAwardsDisplay] = useState(0);
   const [companiesDisplay, setCompaniesDisplay] = useState(0);
