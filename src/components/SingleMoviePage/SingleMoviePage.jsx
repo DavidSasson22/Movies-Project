@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
 export default function SingleMoviePage({ myData }) {
 
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
+  const id = myData.id;
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, [id])
+
+  
   const [awardsDisplay, setAwardsDisplay] = useState(0);
   const [companiesDisplay, setCompaniesDisplay] = useState(0);
   const [genresDisplay, setGenresDisplay] = useState(0);
