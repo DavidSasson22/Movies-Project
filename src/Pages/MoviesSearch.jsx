@@ -9,8 +9,8 @@ import SearchBar from '../components/SearchBar/SearchBar';
 const imdbBasic = {
   baseUrl: `https://imdb-api.com/en/API/`,
 //   key: `k_nvs3d5mt`,
-  key: `k_2ck3tfdo`
-  // key: `k_tjxj5k6p`,
+//   key: `k_2ck3tfdo`
+  key: `k_tjxj5k6p`,
 //   key: `k_r6q4a65u`,
 }
 
